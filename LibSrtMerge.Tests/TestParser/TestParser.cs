@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text;
 using NUnit.Framework;
 
 namespace Tests
@@ -19,11 +20,15 @@ namespace Tests
             Console.WriteLine(String.Join(",", assembly.GetManifestResourceNames()));
             using (var stream = assembly.GetManifestResourceStream("LibSrtMerge.Tests.TestParser.sample.srt"))
             {
-                using(var reader = new StreamReader(stream))
+                var items = parser.ParseStream(stream, Encoding.UTF8);
+                foreach (var item in items)
                 {
-                    Console.WriteLine(reader.ReadToEnd());
+                    Console.WriteLine($"item from {item.StartTime} to {item.EndTime} with {item.Lines.Count} lines");
+                    foreach (var line in item.Lines)
+                    {
+                        Console.WriteLine(line);
+                    }
                 }
-                
             }
             // parser.ParseStream();
             Assert.Pass();
