@@ -17,7 +17,6 @@ namespace Tests
         {
             var parser = new SubtitlesParser.Classes.Parsers.SrtParser();
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            Console.WriteLine(String.Join(",", assembly.GetManifestResourceNames()));
             using (var stream = assembly.GetManifestResourceStream("LibSrtMerge.Tests.TestParser.sample.srt"))
             {
                 var items = parser.ParseStream(stream, Encoding.UTF8);
@@ -30,7 +29,6 @@ namespace Tests
                     }
                 }
             }
-            // parser.ParseStream();
             Assert.Pass();
         }
     }
