@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using LibSrtMerge;
 using NUnit.Framework;
+using SubtitlesParser.Classes;
 
 namespace Tests
 {
@@ -13,11 +16,10 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void ItCanParseAStream()
         {
             var parser = new SubtitlesParser.Classes.Parsers.SrtParser();
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            using (var stream = assembly.GetManifestResourceStream("LibSrtMerge.Tests.TestParser.sample.srt"))
+            using (var stream = GetResourceStream("sample.srt"))
             {
                 var items = parser.ParseStream(stream, Encoding.UTF8);
                 foreach (var item in items)
@@ -30,6 +32,51 @@ namespace Tests
                 }
             }
             Assert.Pass();
+        }
+
+        [Test]
+        public void ItCanWriteAStream()
+        {
+            var sample = "sample.srt";
+            string content = ReadResourceContent(sample);
+            var merger = new SrtMerger();
+            var items = GetSubtitlesFromResource(merger, sample);
+            string output;
+            using (var outputStream = new MemoryStream())
+            {
+                merger.WriteStream(outputStream, items);
+                output = Encoding.UTF8.GetString(outputStream.ToArray());
+            }
+            Console.WriteLine(output);
+            Assert.That(output, Is.EqualTo(content));
+        }
+
+        private IEnumerable<SubtitleItem> GetSubtitlesFromResource(SrtMerger merger, string sample)
+        {
+            using (var stream = GetResourceStream(sample))
+            {
+                return merger.ParseStream(stream);
+            }
+        }
+
+        private string ReadResourceContent(string sample)
+        {
+            string content;
+            using (Stream stream = GetResourceStream(sample))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    content = reader.ReadToEnd();
+                }
+            }
+
+            return content;
+        }
+
+        private Stream GetResourceStream(string v)
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            return assembly.GetManifestResourceStream("LibSrtMerge.Tests.TestParser." + v);
         }
     }
 }
