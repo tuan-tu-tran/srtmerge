@@ -27,13 +27,13 @@ namespace LibSrtMerge
 
         public void WriteStream(Stream stream, IEnumerable<SubtitleItem> items)
         {
-            using(var writer = new StreamWriter(stream))
+            using (var writer = new StreamWriter(stream))
             {
                 var index = 0;
                 foreach (var item in items)
                 {
                     ++index;
-                    if(index > 1)
+                    if (index > 1)
                         writer.WriteLine();
                     writer.WriteLine(index);
                     writer.WriteLine("{0} --> {1}", FormatTimestamp(item.StartTime), FormatTimestamp(item.EndTime));
