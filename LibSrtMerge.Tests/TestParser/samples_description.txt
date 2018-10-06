@@ -5,3 +5,5 @@ This is just an informative text file that describes the sampleXX.srt files
 - sample3 : some bigger sample
 - sample4 : a translation of sample3 slightly unsynced
 - sample5 : the expected result of sample3 and 4 merged after colorizing 4, using 3 as base
+- sample6 : a copy of sample4, truncated to less entries
+- sample7 : the expected result of sample3 merged with sample4, made from sample5 adapted
