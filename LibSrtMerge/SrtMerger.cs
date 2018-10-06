@@ -118,6 +118,7 @@ namespace LibSrtMerge
                 }
             }
             result.AddRange(q1);
+            result.AddRange(q2);
             return result;
         }
     }

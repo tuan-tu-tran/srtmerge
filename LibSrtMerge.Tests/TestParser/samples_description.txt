@@ -7,3 +7,5 @@ This is just an informative text file that describes the sampleXX.srt files
 - sample5 : the expected result of sample3 and 4 merged after colorizing 4, using 3 as base
 - sample6 : a copy of sample4, truncated to less entries
 - sample7 : the expected result of sample3 merged with sample4, made from sample5 adapted
+- sample8 : a truncated copy of sample 3
+- sample9 : result of 8 merged with 4, made from 5
