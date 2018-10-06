@@ -42,13 +42,21 @@ namespace Tests
             var merger = new SrtMerger();
             var items = GetSubtitlesFromResource(merger, sample);
             string output;
+            output = GetOutputToStream(merger, items);
+            Console.WriteLine(output);
+            Assert.That(output, Is.EqualTo(content));
+        }
+
+        private static string GetOutputToStream(SrtMerger merger, IEnumerable<SubtitleItem> items)
+        {
+            string output;
             using (var outputStream = new MemoryStream())
             {
                 merger.WriteStream(outputStream, items);
                 output = Encoding.UTF8.GetString(outputStream.ToArray());
             }
-            Console.WriteLine(output);
-            Assert.That(output, Is.EqualTo(content));
+
+            return output;
         }
 
         private IEnumerable<SubtitleItem> GetSubtitlesFromResource(SrtMerger merger, string sample)
