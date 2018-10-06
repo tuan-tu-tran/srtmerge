@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
     <PackageReference Include="SubtitlesParser" Version="1.4.7" />
     <EmbeddedResource Include="TestParser/sample.srt" />
+    <EmbeddedResource Include="TestParser/sample2.srt" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,7 +16,7 @@ namespace LibSrtMerge
             return parser.ParseStream(stream, Encoding.UTF8);
         }
 
-        public void Colorize(IEnumerable<SubtitleItem> items)
+        public void Colorize(IEnumerable<SubtitleItem> items, string hexColor)
         {
         }
 

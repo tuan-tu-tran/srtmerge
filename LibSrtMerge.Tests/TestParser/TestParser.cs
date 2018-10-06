@@ -47,6 +47,18 @@ namespace Tests
             Assert.That(output, Is.EqualTo(content));
         }
 
+        [Test]
+        public void ItCanColorizeAStream()
+        {
+            var merger = new SrtMerger();
+            var items = GetSubtitlesFromResource(merger, "sample.srt");
+            merger.Colorize(items, "FFFF00");
+            var output = GetOutputToStream(merger, items);
+            var expectedOutput = ReadResourceContent("sample2.srt");
+            Console.WriteLine(output);
+            Assert.That(output, Is.EqualTo(expectedOutput), "wrong output");
+        }
+
         private static string GetOutputToStream(SrtMerger merger, IEnumerable<SubtitleItem> items)
         {
             string output;
