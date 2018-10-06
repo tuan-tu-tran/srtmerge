@@ -59,6 +59,24 @@ namespace Tests
             Assert.That(output, Is.EqualTo(expectedOutput), "wrong output");
         }
 
+        [Test]
+        public void ItCanMergeSubtitles()
+        {
+            var merger = new SrtMerger();
+            var subs1 = GetSubtitlesFromResource(merger, "sample3.srt");
+            var subs2 = GetSubtitlesFromResource(merger, "sample4.srt");
+
+            merger.Colorize(subs2, "FFEA00");
+
+            var result = merger.MergeSubtitles(subs1, subs2);
+
+            var output = GetOutputToStream(merger, result);
+            var expectedOutput = ReadResourceContent("sample5.srt");
+            Console.WriteLine(output);
+            Assert.That(output, Is.EqualTo(expectedOutput), "wrong output");
+
+        }
+
         private static string GetOutputToStream(SrtMerger merger, IEnumerable<SubtitleItem> items)
         {
             string output;

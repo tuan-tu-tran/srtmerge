@@ -49,5 +49,10 @@ namespace LibSrtMerge
         {
             return TimeSpan.FromMilliseconds(startTime).ToString("hh\\:mm\\:ss\\,fff");
         }
+
+        public IEnumerable<SubtitleItem> MergeSubtitles(IEnumerable<SubtitleItem> subs1, IEnumerable<SubtitleItem> subs2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

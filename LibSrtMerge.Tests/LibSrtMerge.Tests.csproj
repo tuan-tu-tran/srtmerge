@@ -13,6 +13,9 @@
     <PackageReference Include="SubtitlesParser" Version="1.4.7" />
     <EmbeddedResource Include="TestParser/sample.srt" />
     <EmbeddedResource Include="TestParser/sample2.srt" />
+    <EmbeddedResource Include="TestParser/sample3.srt" />
+    <EmbeddedResource Include="TestParser/sample4.srt" />
+    <EmbeddedResource Include="TestParser/sample5.srt" />
   </ItemGroup>
 
   <ItemGroup>
