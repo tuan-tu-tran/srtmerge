@@ -60,18 +60,19 @@ namespace Tests
         }
 
         [Test]
-        public void ItCanMergeSubtitles()
+        [TestCase("sample3.srt", "sample4.srt", "sample5.srt")]
+        public void ItCanMergeSubtitles(string input1, string input2, string expected)
         {
             var merger = new SrtMerger();
-            var subs1 = GetSubtitlesFromResource(merger, "sample3.srt");
-            var subs2 = GetSubtitlesFromResource(merger, "sample4.srt");
+            var subs1 = GetSubtitlesFromResource(merger, input1);
+            var subs2 = GetSubtitlesFromResource(merger, input2);
 
             merger.Colorize(subs2, "FFEA00");
 
             var result = merger.MergeSubtitles(subs1, subs2);
 
             var output = GetOutputToStream(merger, result);
-            var expectedOutput = ReadResourceContent("sample5.srt");
+            var expectedOutput = ReadResourceContent(expected);
             Assert.That(output, Is.EqualTo(expectedOutput), "wrong output");
 
         }
