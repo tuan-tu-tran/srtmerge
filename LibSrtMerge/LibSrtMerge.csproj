@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="SubtitlesParser" Version="1.4.7" />
+    <PackageReference Include="System.IO.Abstractions" Version="2.1.0.233" />
   </ItemGroup>
 
 </Project>
