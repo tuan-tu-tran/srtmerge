@@ -62,6 +62,7 @@ namespace Tests
         [Test]
         [TestCase("sample3.srt", "sample4.srt", "sample5.srt")]
         [TestCase("sample3.srt", "sample6.srt", "sample7.srt")]
+        [TestCase("sample8.srt", "sample4.srt", "sample9.srt")]
         public void ItCanMergeSubtitles(string input1, string input2, string expected)
         {
             var merger = new SrtMerger();
