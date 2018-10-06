@@ -117,6 +117,7 @@ namespace LibSrtMerge
                     }
                 }
             }
+            result.AddRange(q1);
             return result;
         }
     }
