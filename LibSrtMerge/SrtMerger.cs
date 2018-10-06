@@ -18,6 +18,11 @@ namespace LibSrtMerge
 
         public void Colorize(IEnumerable<SubtitleItem> items, string hexColor)
         {
+            foreach (var item in items)
+            {
+                item.Lines[0] = "<font color=\"#" + hexColor + "\">" + item.Lines[0];
+                item.Lines[item.Lines.Count - 1] += "</font>";
+            }
         }
 
         public void WriteStream(Stream stream, IEnumerable<SubtitleItem> items)
