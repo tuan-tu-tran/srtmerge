@@ -72,7 +72,6 @@ namespace Tests
 
             var output = GetOutputToStream(merger, result);
             var expectedOutput = ReadResourceContent("sample5.srt");
-            Console.WriteLine(output);
             Assert.That(output, Is.EqualTo(expectedOutput), "wrong output");
 
         }
