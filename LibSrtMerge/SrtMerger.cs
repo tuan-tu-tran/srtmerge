@@ -28,13 +28,14 @@ namespace LibSrtMerge
                 foreach (var item in items)
                 {
                     ++index;
+                    if(index > 1)
+                        writer.WriteLine();
                     writer.WriteLine(index);
                     writer.WriteLine("{0} --> {1}", FormatTimestamp(item.StartTime), FormatTimestamp(item.EndTime));
                     foreach (var line in item.Lines)
                     {
                         writer.WriteLine(line);
                     }
-                    writer.WriteLine();
                 }
             }
         }
