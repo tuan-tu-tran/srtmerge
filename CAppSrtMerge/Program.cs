@@ -6,7 +6,8 @@ namespace CAppSrtMerge
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            LibSrtMerge.CommandLineInterface cli = new LibSrtMerge.CommandLineInterface();
+            cli.Main(args);
         }
     }
 }
