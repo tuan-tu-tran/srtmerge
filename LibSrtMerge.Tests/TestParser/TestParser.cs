@@ -99,7 +99,7 @@ namespace Tests
             }
         }
 
-        private string ReadResourceContent(string sample)
+        public static string ReadResourceContent(string sample)
         {
             string content;
             using (Stream stream = GetResourceStream(sample))
@@ -113,7 +113,7 @@ namespace Tests
             return content;
         }
 
-        private Stream GetResourceStream(string v)
+        public static Stream GetResourceStream(string v)
         {
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             return assembly.GetManifestResourceStream("LibSrtMerge.Tests.TestParser." + v);
