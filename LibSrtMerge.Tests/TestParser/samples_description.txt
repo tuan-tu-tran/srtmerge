@@ -10,3 +10,6 @@ This is just an informative text file that describes the sampleXX.srt files
 - sample8 : a truncated copy of sample 3
 - sample9 : result of 8 merged with 4, made from 5
 - sample10 : same as 5 with a different color FFFF00
+- sample11 : some new sample.
+- sample12 : an independant translation of 11
+- sample13 : the expected result betwee 11 and 12
