@@ -89,8 +89,19 @@ namespace LibSrtMerge
                     var s2 = q2.Peek();
                     if (s2.Overlaps(current))
                     {
-                        current.Lines.AddRange(s2.Lines);
-                        q2.Dequeue();
+                        if (!s2.Overlaps(s1) || s2.GetOverlap(current) >= s2.GetOverlap(s1))
+                        {
+                            current.Lines.AddRange(s2.Lines);
+                            q2.Dequeue();
+                        }
+                        else
+                        {
+                            current = s1.Clone();
+                            current.Lines.AddRange(s2.Lines);
+                            result.Add(current);
+                            q1.Dequeue();
+                            q2.Dequeue();
+                        }
                     }
                     else
                     {

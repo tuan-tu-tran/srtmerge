@@ -1,3 +1,4 @@
+using System;
 using SubtitlesParser.Classes;
 
 namespace LibSrtMerge
@@ -21,6 +22,12 @@ namespace LibSrtMerge
                 EndTime = s1.EndTime,
                 Lines = new System.Collections.Generic.List<string>(s1.Lines),
             };
+        }
+
+        public static double GetOverlap(this SubtitleItem s1, SubtitleItem s2)
+        {
+            var overlap = Math.Min(s1.EndTime, s2.EndTime) - Math.Max(s1.StartTime, s2.StartTime);
+            return Math.Max(overlap, 0);
         }
 
     }
