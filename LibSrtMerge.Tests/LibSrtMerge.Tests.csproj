@@ -22,6 +22,9 @@
     <EmbeddedResource Include="TestParser/sample8.srt" />
     <EmbeddedResource Include="TestParser/sample9.srt" />
     <EmbeddedResource Include="TestParser/sample10.srt" />
+    <EmbeddedResource Include="TestParser/sample11.srt" />
+    <EmbeddedResource Include="TestParser/sample12.srt" />
+    <EmbeddedResource Include="TestParser/sample13.srt" />
   </ItemGroup>
 
   <ItemGroup>
