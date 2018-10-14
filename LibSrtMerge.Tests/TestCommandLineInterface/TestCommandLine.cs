@@ -15,7 +15,7 @@ namespace LibSrtMerge
             var fsMock = new Mock<IFileSystem>(MockBehavior.Strict);
             fsMock.Setup(fs => fs.File.OpenRead(It.IsAny<string>())).Returns<string>(Tests.TestParser.GetResourceStream);
             var output = new MemoryStream();
-            fsMock.Setup(fs => fs.File.OpenWrite("output.srt")).Returns(output);
+            fsMock.Setup(fs => fs.File.Open("output.srt", FileMode.Create)).Returns(output);
 
             var cli = new CommandLineInterface()
             {
