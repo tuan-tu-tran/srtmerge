@@ -30,7 +30,7 @@ namespace LibSrtMerge
 
                     var result = merger.MergeSubtitles(s1, s2);
 
-                    using (var output = FileSystem.File.OpenWrite(outputPath))
+                    using (var output = FileSystem.File.Open(outputPath, FileMode.Create))
                     {
                         merger.WriteStream(output, result);
                     }

@@ -7,5 +7,6 @@ namespace LibSrtMerge
     {
         Stream OpenRead(string path);
         Stream OpenWrite(string path);
+        Stream Open(string path, FileMode mode);
     }
 }
