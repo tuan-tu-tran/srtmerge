@@ -7,8 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/CAppSrtMerge/CAppSrtMerge.csproj"
-                // "${workspaceFolder}/LibSrtMerge.Tests/LibSrtMerge.Tests.csproj"
+                "${workspaceFolder}/srtmerge.sln"
             ],
             "problemMatcher": "$msCompile"
         }
