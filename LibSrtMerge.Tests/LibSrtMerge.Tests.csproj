@@ -30,6 +30,7 @@
     <EmbeddedResource Include="TestZipFileProcessor/sample2.srt" />
     <EmbeddedResource Include="TestZipFileProcessor/sample3.srt" />
     <EmbeddedResource Include="TestZipFileProcessor/sample4.zip" />
+    <EmbeddedResource Include="TestZipFileProcessor/sample5.zip" />
   </ItemGroup>
 
   <ItemGroup>

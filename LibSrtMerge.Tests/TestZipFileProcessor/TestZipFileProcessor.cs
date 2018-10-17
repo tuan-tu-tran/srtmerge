@@ -33,6 +33,7 @@ namespace LibSrtMerge.Tests.TestZipFileProcessor
 
         [Test]
         [TestCase("sample4.zip")]
+        [TestCase("sample5.zip")]
         public void ItFailsIfNoUniqueSrtFile(string archiveFile)
         {
             var archive = GetStream(archiveFile);
