@@ -13,6 +13,7 @@ namespace LibSrtMerge
                 return false;
             var header = new byte[4];
             s.Read(header, 0, 4);
+            s.Seek(0, SeekOrigin.Begin);
 
             //shoud be 0x04034b50 (little-endiand number)
             return header.SequenceEqual(new byte[]{
@@ -29,6 +30,18 @@ namespace LibSrtMerge
             if (srtEntries.Count() == 0)
                 throw new ApplicationException("No srt entry found : " + String.Join(" , ", archive.Entries.Select(e => e.Name)));
             return srtEntries.First().Open();
+        }
+
+        public Stream GetSrtStream(Stream stream)
+        {
+            if(IsZipFile(stream))
+            {
+                return GetSrtStreamFromZip(stream);
+            }
+            else
+            {
+                return stream;
+            }
         }
 
     }

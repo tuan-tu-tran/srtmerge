@@ -17,6 +17,7 @@ namespace LibSrtMerge.Tests.TestZipFileProcessor
             var stream = Geekality.IO.EmbeddedResource.Get<TestZipFileProcessor>(name, true);
             var processor = new ZipFileProcessor();
             Assert.That(processor.IsZipFile(stream), Is.EqualTo(isZipFile));
+            Assert.That(stream.Position, Is.EqualTo(0));
         }
 
         [Test]
@@ -45,10 +46,22 @@ namespace LibSrtMerge.Tests.TestZipFileProcessor
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Caught exception: "+ex.Message);
+                Console.WriteLine("Caught exception: " + ex.Message);
                 Assert.Pass();
             }
             Assert.Fail("no exception was thrown");
+        }
+
+        [Test]
+        [TestCase("sample1.zip", "sample3.srt")]
+        [TestCase("sample3.srt", "sample3.srt")]
+        public void ItCanGetTheRightStreamForAnyKindOfInput(string inputStream, string expectedStream)
+        {
+            var content = new ZipFileProcessor().GetSrtStream(GetStream(inputStream)).ReadBytes();
+            var expectedContent = GetStream(expectedStream).ReadBytes();
+
+            Assert.That(content, Is.EqualTo(expectedContent));
+
         }
 
     }
