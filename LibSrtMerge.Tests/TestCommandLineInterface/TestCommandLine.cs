@@ -13,6 +13,7 @@ namespace LibSrtMerge.Tests.TestCommandLineInterface
         Stream GetStream(string name) => Geekality.IO.EmbeddedResource.Get<TestCommandLine>(name, true);
         [Test]
         [TestCase("sample3.srt", "sample4.srt", "sample10.srt")]
+        [TestCase("sample1.zip", "sample2.zip", "sample10.srt")]
         public void ItCanMergeSrtFiles(string input1, string input2, string expectedOutput)
         {
             var fsMock = new Mock<IFileSystem>(MockBehavior.Strict);

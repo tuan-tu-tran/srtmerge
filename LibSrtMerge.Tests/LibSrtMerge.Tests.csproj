@@ -31,6 +31,8 @@
     <EmbeddedResource Include="TestZipFileProcessor/sample3.srt" />
     <EmbeddedResource Include="TestZipFileProcessor/sample4.zip" />
     <EmbeddedResource Include="TestZipFileProcessor/sample5.zip" />
+    <EmbeddedResource Include="TestCommandLineInterface/sample1.zip" />
+    <EmbeddedResource Include="TestCommandLineInterface/sample2.zip" />
     <EmbeddedResource Include="TestCommandLineInterface/sample3.srt" />
     <EmbeddedResource Include="TestCommandLineInterface/sample4.srt" />
     <EmbeddedResource Include="TestCommandLineInterface/sample10.srt" />
