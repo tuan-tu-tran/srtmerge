@@ -38,8 +38,16 @@ namespace LibSrtMerge.Tests.TestZipFileProcessor
             var archive = GetStream(archiveFile);
             var processor = new ZipFileProcessor();
 
-            Assert.That(() => processor.GetSrtStreamFromZip(archive), Throws.Exception);
-
+            try
+            {
+                processor.GetSrtStreamFromZip(archive);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Caught exception: "+ex.Message);
+                Assert.Pass();
+            }
+            Assert.Fail("no exception was thrown");
         }
 
     }
