@@ -19,5 +19,17 @@ namespace LibSrtMerge.Tests.TestZipFileProcessor
             Assert.That(processor.IsZipFile(stream), Is.EqualTo(isZipFile));
         }
 
+        [Test]
+        public void ItCanExtractTheSrtFile()
+        {
+            var archive = GetStream("sample1.zip");
+            var processor = new ZipFileProcessor();
+
+            var result = processor.GetSrtStreamFromZip(archive).ReadBytes();
+            var expected = GetStream("sample3.srt").ReadBytes();
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
     }
 }

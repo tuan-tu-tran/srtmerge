@@ -28,6 +28,7 @@
     <EmbeddedResource Include="TestParser/sample13.srt" />
     <EmbeddedResource Include="TestZipFileProcessor/sample1.zip" />
     <EmbeddedResource Include="TestZipFileProcessor/sample2.srt" />
+    <EmbeddedResource Include="TestZipFileProcessor/sample3.srt" />
   </ItemGroup>
 
   <ItemGroup>
