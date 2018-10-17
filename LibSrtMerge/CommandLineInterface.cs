@@ -20,12 +20,13 @@ namespace LibSrtMerge
             }
             string outputPath = "output.srt";
             var merger = new SrtMerger();
+            var zipProcessor = new ZipFileProcessor();
             using (var f1 = FileSystem.File.OpenRead(args[0]))
             {
-                var s1 = merger.ParseStream(f1);
+                var s1 = merger.ParseStream(zipProcessor.GetSrtStream(f1));
                 using (var f2 = FileSystem.File.OpenRead(args[1]))
                 {
-                    var s2 = merger.ParseStream(f2);
+                    var s2 = merger.ParseStream(zipProcessor.GetSrtStream(f2));
                     merger.Colorize(s2, Color);
 
                     var result = merger.MergeSubtitles(s1, s2);

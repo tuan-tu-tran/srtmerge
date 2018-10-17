@@ -29,7 +29,10 @@ namespace LibSrtMerge
                 throw new ApplicationException("Multiple srt entries found: " + String.Join(" , ", srtEntries.Select(e => e.Name)));
             if (srtEntries.Count() == 0)
                 throw new ApplicationException("No srt entry found : " + String.Join(" , ", archive.Entries.Select(e => e.Name)));
-            return srtEntries.First().Open();
+            var result = new MemoryStream();
+            srtEntries.First().Open().CopyTo(result);
+            result.Seek(0, SeekOrigin.Begin);
+            return result;
         }
 
         public Stream GetSrtStream(Stream stream)
