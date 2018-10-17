@@ -31,5 +31,16 @@ namespace LibSrtMerge.Tests.TestZipFileProcessor
             Assert.That(result, Is.EqualTo(expected));
         }
 
+        [Test]
+        [TestCase("sample4.zip")]
+        public void ItFailsIfNoUniqueSrtFile(string archiveFile)
+        {
+            var archive = GetStream(archiveFile);
+            var processor = new ZipFileProcessor();
+
+            Assert.That(() => processor.GetSrtStreamFromZip(archive), Throws.Exception);
+
+        }
+
     }
 }
