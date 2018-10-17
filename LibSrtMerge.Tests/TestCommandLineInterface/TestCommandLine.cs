@@ -12,7 +12,8 @@ namespace LibSrtMerge.Tests.TestCommandLineInterface
     {
         Stream GetStream(string name) => Geekality.IO.EmbeddedResource.Get<TestCommandLine>(name, true);
         [Test]
-        public void ItCanMergeSrtFiles()
+        [TestCase("sample3.srt", "sample4.srt", "sample10.srt")]
+        public void ItCanMergeSrtFiles(string input1, string input2, string expectedOutput)
         {
             var fsMock = new Mock<IFileSystem>(MockBehavior.Strict);
             fsMock.Setup(fs => fs.File.OpenRead(It.IsAny<string>())).Returns<string>(GetStream);
@@ -25,9 +26,9 @@ namespace LibSrtMerge.Tests.TestCommandLineInterface
             };
 
             cli.Main(new string[]{
-                "sample3.srt", "sample4.srt"
+                input1, input2
             });
-            Assert.That(output.ToArray(), Is.EqualTo(GetStream("sample10.srt").ReadBytes()));
+            Assert.That(output.ToArray(), Is.EqualTo(GetStream(expectedOutput).ReadBytes()));
         }
     }
 }
