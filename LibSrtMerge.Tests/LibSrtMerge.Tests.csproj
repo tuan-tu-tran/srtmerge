@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Geekality.IO" Version="1.2.0" />
     <PackageReference Include="Moq" Version="4.10.0" />
     <PackageReference Include="nunit" Version="3.10.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
@@ -25,6 +26,16 @@
     <EmbeddedResource Include="TestParser/sample11.srt" />
     <EmbeddedResource Include="TestParser/sample12.srt" />
     <EmbeddedResource Include="TestParser/sample13.srt" />
+    <EmbeddedResource Include="TestZipFileProcessor/sample1.zip" />
+    <EmbeddedResource Include="TestZipFileProcessor/sample2.srt" />
+    <EmbeddedResource Include="TestZipFileProcessor/sample3.srt" />
+    <EmbeddedResource Include="TestZipFileProcessor/sample4.zip" />
+    <EmbeddedResource Include="TestZipFileProcessor/sample5.zip" />
+    <EmbeddedResource Include="TestCommandLineInterface/sample1.zip" />
+    <EmbeddedResource Include="TestCommandLineInterface/sample2.zip" />
+    <EmbeddedResource Include="TestCommandLineInterface/sample3.srt" />
+    <EmbeddedResource Include="TestCommandLineInterface/sample4.srt" />
+    <EmbeddedResource Include="TestCommandLineInterface/sample10.srt" />
   </ItemGroup>
 
   <ItemGroup>
