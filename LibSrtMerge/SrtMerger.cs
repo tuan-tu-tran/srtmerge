@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using SubtitlesParser.Classes;
 using SubtitlesParser.Classes.Parsers;
@@ -12,8 +13,22 @@ namespace LibSrtMerge
 
         public IEnumerable<SubtitleItem> ParseStream(Stream stream)
         {
-            var parser = new SrtParser();
-            return parser.ParseStream(stream, Encoding.UTF8);
+            var parser = new SubParser();
+            var items = parser.ParseStream(stream, Encoding.UTF8);
+            foreach (var item in items)
+            {
+                item.Lines = item.Lines.Select(NormalizeSubtitleLine).ToList();
+            }
+            return items;
+        }
+
+        static string NormalizeSubtitleLine(string s)
+        {
+            return s
+                .Replace("\\N", "\n")
+                .Replace("{\\i1}", "<i>")
+                .Replace("{\\i0}", "</i>")
+            ;
         }
 
         public void Colorize(IEnumerable<SubtitleItem> items, string hexColor)
