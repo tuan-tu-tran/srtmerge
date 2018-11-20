@@ -55,6 +55,7 @@ namespace LibSrtMerge.Tests.TestZipFileProcessor
         [Test]
         [TestCase("sample1.zip", "sample3.srt")]
         [TestCase("sample3.srt", "sample3.srt")]
+        [TestCase("sample6.zip", "sample7.ass")]
         public void ItCanGetTheRightStreamForAnyKindOfInput(string inputStream, string expectedStream)
         {
             var content = new ZipFileProcessor().GetSrtStream(GetStream(inputStream)).ReadBytes();

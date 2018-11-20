@@ -3,3 +3,5 @@
 - sample3.srt : the srt file contained in sample1.zip
 - sample4.zip : some zip file with 2 srt files
 - sample5.zip : some zip file without any srt file : 1 nfo and 1 txt
+- sample6.zip : some zip file with 2 files: 1 ass and 1 nfo
+- sample7.ass : the ass file inside sample6.zip
