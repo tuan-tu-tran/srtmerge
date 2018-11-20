@@ -28,7 +28,7 @@ namespace Tests
                 using(var output = new MemoryStream())
                 {
                     parser.WriteStream(output, items);
-                    Assert.That(output.ToArray(), Is.EqualTo(GetResourceStream(expectedOutputResource).ReadBytes()));
+                    Assert.That(output.ToArray().AsString().WithLF(), Is.EqualTo(GetResourceStream(expectedOutputResource).ReadToEnd().WithLF()));
                 }
             }
         }
