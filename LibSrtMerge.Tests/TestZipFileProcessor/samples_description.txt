@@ -5,3 +5,4 @@
 - sample5.zip : some zip file without any srt file : 1 nfo and 1 txt
 - sample6.zip : some zip file with 2 files: 1 ass and 1 nfo
 - sample7.ass : the ass file inside sample6.zip
+- sample8.zip : a zip file with 2 (fake) ass files
