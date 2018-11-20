@@ -18,6 +18,7 @@ namespace Tests
 
         [Test]
         [TestCase("sample.srt", "sample.srt")]
+        [TestCase("sample14.ass", "sample15.srt")]
         public void ItCanParseAndWriteAStream(string inputResource, string expectedOutputResource)
         {
             var parser = new SrtMerger();

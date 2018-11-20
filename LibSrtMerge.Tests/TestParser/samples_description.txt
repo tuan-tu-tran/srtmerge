@@ -13,3 +13,5 @@ This is just an informative text file that describes the sampleXX.srt files
 - sample11 : some new sample.
 - sample12 : an independant translation of 11
 - sample13 : the expected result betwee 11 and 12
+- sample14 : some advanced sub station alpha file
+- sample15 : sample14 saved as srt with Gaupol
