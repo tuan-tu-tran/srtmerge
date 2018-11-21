@@ -24,7 +24,7 @@ namespace LibSrtMerge
         public Stream GetSrtStreamFromZip(Stream zipFileStream)
         {
             var archive = new ZipArchive(zipFileStream);
-            var srtEntries = archive.Entries.Where(e => e.Name.EndsWith(".srt")).ToList();
+            var srtEntries = archive.Entries.Where(e => e.Name.EndsWith(".srt") || e.Name.EndsWith(".ass")).ToList();
             if (srtEntries.Count > 1)
                 throw new ApplicationException("Multiple srt entries found: " + String.Join(" , ", srtEntries.Select(e => e.Name)));
             if (srtEntries.Count() == 0)
