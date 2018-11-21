@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using LibSrtMerge;
+using LibSrtMerge.Tests;
 using NUnit.Framework;
 using SubtitlesParser.Classes;
 
@@ -16,22 +17,20 @@ namespace Tests
         }
 
         [Test]
-        public void ItCanParseAStream()
+        [TestCase("sample.srt", "sample.srt")]
+        [TestCase("sample14.ass", "sample15.srt")]
+        public void ItCanParseAndWriteAStream(string inputResource, string expectedOutputResource)
         {
-            var parser = new SubtitlesParser.Classes.Parsers.SrtParser();
-            using (var stream = GetResourceStream("sample.srt"))
+            var parser = new SrtMerger();
+            using (var stream = GetResourceStream(inputResource))
             {
-                var items = parser.ParseStream(stream, Encoding.UTF8);
-                foreach (var item in items)
+                var items = parser.ParseStream(stream);
+                using(var output = new MemoryStream())
                 {
-                    Console.WriteLine($"item from {item.StartTime} to {item.EndTime} with {item.Lines.Count} lines");
-                    foreach (var line in item.Lines)
-                    {
-                        Console.WriteLine(line);
-                    }
+                    parser.WriteStream(output, items);
+                    Assert.That(output.ToArray().AsString().WithLF(), Is.EqualTo(GetResourceStream(expectedOutputResource).ReadToEnd().WithLF()));
                 }
             }
-            Assert.Pass();
         }
 
         [Test]
