@@ -1,150 +1,150 @@
 1
 00:00:00,029 --> 00:03:50,029
-<font color="#FFFF00">SWEENEY TODD:
+SWEENEY TODD:
 <b>The Demon Barber of Fleet Street</b>
-<i>Subtitle edited by NCC | CHAUNC@</i></font>
+<i>Subtitle edited by NCC | CHAUNC@</i>
 
 2
 00:03:50,063 --> 00:03:54,692
-l have sailed the world
-Beheld its wonders
-<font color="#FFFF00"><i>Tôi đã du ngoạn vòng quanh thế giới
-Nhìn ngắm những kỳ quan của thế giới</i></font>
+<font color="#ffff54">l have sailed the world
+Beheld its wonders</font>
+<i>Tôi đã du ngoạn vòng quanh thế giới
+Nhìn ngắm những kỳ quan của thế giới</i>
 
 3
 00:03:54,776 --> 00:03:59,322
-From the Dardanelles
-To the mountains of Peru
-<font color="#FFFF00"><i>Từ vùng Dardanelles
-Đến những đồi núi ở Peru</i></font>
+<font color="#ffff54">From the Dardanelles
+To the mountains of Peru</font>
+<i>Từ vùng Dardanelles
+Đến những đồi núi ở Peru</i>
 
 4
 00:03:59,406 --> 00:04:03,618
-But there's no place like London
-<font color="#FFFF00"><i>Nhưng không một nơi nào như London</i></font>
+<font color="#ffff54">But there's no place like London</font>
+<i>Nhưng không một nơi nào như London</i>
 
 5
 00:04:03,702 --> 00:04:07,747
-No, there's no place like London
-<font color="#FFFF00"><i>Không, không một nơi nào như London</i></font>
+<font color="#ffff54">No, there's no place like London</font>
+<i>Không, không một nơi nào như London</i>
 
 6
 00:04:07,831 --> 00:04:09,290
-Mr. Todd?
-<font color="#FFFF00">Chú Todd?</font>
+<font color="#ffff54">Mr. Todd?</font>
+Chú Todd?
 
 7
 00:04:10,167 --> 00:04:14,795
-You are young
-Life has been kind to you
-<font color="#FFFF00"><i>Cậu còn trẻ
-Cuộc đời vẫn êm ả với cậu</i></font>
+<font color="#ffff54">You are young
+Life has been kind to you</font>
+<i>Cậu còn trẻ
+Cuộc đời vẫn êm ả với cậu</i>
 
 8
 00:04:18,175 --> 00:04:22,553
-You will learn
-<font color="#FFFF00"><i>Cậu sẽ biết</i></font>
+<font color="#ffff54">You will learn</font>
+<i>Cậu sẽ biết</i>
 
 9
 00:04:37,319 --> 00:04:39,403
-There's a hole in the world
-like a great black pit
-<font color="#FFFF00"><i>Thế giới này có một lỗ hổng
-như một cái hố to đen ngòm</i></font>
+<font color="#ffff54">There's a hole in the world
+like a great black pit</font>
+<i>Thế giới này có một lỗ hổng
+như một cái hố to đen ngòm</i>
 
 10
 00:04:39,488 --> 00:04:41,364
-And the vermin of the world inhabit it
-<font color="#FFFF00"><i>Và bọn vô lại đều sinh sống ở đó</i></font>
+<font color="#ffff54">And the vermin of the world inhabit it</font>
+<i>Và bọn vô lại đều sinh sống ở đó</i>
 
 11
 00:04:41,448 --> 00:04:43,491
-And its morals aren't worth
-what a pig could spit
-<font color="#FFFF00"><i>Và nhân cách của chúng chẳng đáng bằng
-thứ mà một con lợn nhổ ra được</i></font>
+<font color="#ffff54">And its morals aren't worth
+what a pig could spit</font>
+<i>Và nhân cách của chúng chẳng đáng bằng
+thứ mà một con lợn nhổ ra được</i>
 
 12
 00:04:43,575 --> 00:04:46,118
-And it goes by the name of London
-<font color="#FFFF00"><i>Và nó mang cái tên London</i></font>
+<font color="#ffff54">And it goes by the name of London</font>
+<i>Và nó mang cái tên London</i>
 
 13
 00:04:47,204 --> 00:04:49,288
-At the top of the hole
-sit a privileged few
-<font color="#FFFF00"><i>Trên miệng cái hố đó
-là một vài kẻ được hưởng đặc ân</i></font>
+<font color="#ffff54">At the top of the hole
+sit a privileged few</font>
+<i>Trên miệng cái hố đó
+là một vài kẻ được hưởng đặc ân</i>
 
 14
 00:04:49,373 --> 00:04:51,290
-Making mock of the vermin
-in the lower zoo
-<font color="#FFFF00"><i>Chế nhạo bọn vô lại
-trong cái chuồng thú thấp kém hơn bên dưới</i></font>
+<font color="#ffff54">Making mock of the vermin
+in the lower zoo</font>
+<i>Chế nhạo bọn vô lại
+trong cái chuồng thú thấp kém hơn bên dưới</i>
 
 15
 00:04:51,375 --> 00:04:53,125
-Turning beauty into filth and greed
-<font color="#FFFF00"><i>Biến cái đẹp thành rác rưởi và sự tham lam</i></font>
+<font color="#ffff54">Turning beauty into filth and greed</font>
+<i>Biến cái đẹp thành rác rưởi và sự tham lam</i>
 
 16
 00:04:53,210 --> 00:04:58,547
-l too have sailed the world
-and seen its wonders
-<font color="#FFFF00"><i>Ta cũng đã từng đi vòng quanh thế giới
-và đã thấy những kỳ quan của nó</i></font>
+<font color="#ffff54">l too have sailed the world
+and seen its wonders</font>
+<i>Ta cũng đã từng đi vòng quanh thế giới
+và đã thấy những kỳ quan của nó</i>
 
 17
 00:04:58,632 --> 00:05:03,135
-For the cruelty of men
-is as wondrous as Peru
-<font color="#FFFF00"><i>Vì sự tàn nhẫn của con người
-cũng giống như sự kỳ diệu của Peru</i></font>
+<font color="#ffff54">For the cruelty of men
+is as wondrous as Peru</font>
+<i>Vì sự tàn nhẫn của con người
+cũng giống như sự kỳ diệu của Peru</i>
 
 18
 00:05:03,220 --> 00:05:07,556
-But there's no place like London
-<font color="#FFFF00"><i>Nhưng không một nơi nào như London</i></font>
+<font color="#ffff54">But there's no place like London</font>
+<i>Nhưng không một nơi nào như London</i>
 
 19
 00:05:25,367 --> 00:05:27,868
-ls everything all right, Mr. Todd?
-<font color="#FFFF00">Mọi chuyện ổn cả chứ, chú Todd?</font>
+<font color="#ffff54">ls everything all right, Mr. Todd?</font>
+Mọi chuyện ổn cả chứ, chú Todd?
 
 20
 00:05:29,121 --> 00:05:31,455
-l beg your indulgence, Anthony.
-<font color="#FFFF00">Tôi xin khẩn cầu một đặc ân, Anthony.</font>
+<font color="#ffff54">l beg your indulgence, Anthony.</font>
+Tôi xin khẩn cầu một đặc ân, Anthony.
 
 21
 00:05:32,082 --> 00:05:34,291
-My mind is far from easy.
-<font color="#FFFF00">Tâm trí tôi không hề thoải mái chút nào.</font>
+<font color="#ffff54">My mind is far from easy.</font>
+Tâm trí tôi không hề thoải mái chút nào.
 
 22
 00:05:36,253 --> 00:05:41,424
-ln these once familiar streets
-l feel shadows everywhere.
-<font color="#FFFF00">Trên những con đường từng rất quen thuộc này
-tôi cảm thấy những bóng hình lảng vảng khắp nơi.</font>
+<font color="#ffff54">ln these once familiar streets
+l feel shadows everywhere.</font>
+Trên những con đường từng rất quen thuộc này
+tôi cảm thấy những bóng hình lảng vảng khắp nơi.
 
 23
 00:05:41,675 --> 00:05:43,050
-Shadows?
-<font color="#FFFF00">Những bóng hình?</font>
+<font color="#ffff54">Shadows?</font>
+Những bóng hình?
 
 24
 00:05:44,553 --> 00:05:45,886
-Ghosts.
-<font color="#FFFF00">Những bóng ma.</font>
+<font color="#ffff54">Ghosts.</font>
+Những bóng ma.
 
 25
 00:05:53,103 --> 00:05:56,689
-There was a barber and his wife
-<font color="#FFFF00"><i>Có một chàng thợ cạo và vợ</i></font>
+<font color="#ffff54">There was a barber and his wife</font>
+<i>Có một chàng thợ cạo và vợ</i>
 
 26
 00:05:56,773 --> 00:05:59,734
-And she was beautiful
-<font color="#FFFF00"><i>Và nàng rất xinh đẹp</i></font>
+<font color="#ffff54">And she was beautiful</font>
+<i>Và nàng rất xinh đẹp</i>
