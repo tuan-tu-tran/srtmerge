@@ -19,6 +19,11 @@ namespace LibSrtMerge
                 Out.WriteLine("usage : {0} FILE1 FILE2", _PROG_NAME);
                 return 1;
             }
+            var config = new CommandLineConfig()
+            {
+                Color1 = "ffff54",
+                Color2 = "",
+            };
             string outputPath = GetOutputPath(args[0]);
             var merger = new SrtMerger();
             var zipProcessor = new ZipFileProcessor();
@@ -28,7 +33,14 @@ namespace LibSrtMerge
                 using (var f2 = FileSystem.File.OpenRead(args[1]))
                 {
                     var s2 = merger.ParseStream(zipProcessor.GetSrtStream(f2));
-                    merger.Colorize(s2, Color);
+                    if (!string.IsNullOrWhiteSpace(config.Color1))
+                    {
+                        merger.Colorize(s1, config.Color1);
+                    }
+                    if (!string.IsNullOrWhiteSpace(config.Color2))
+                    {
+                        merger.Colorize(s2, config.Color2);
+                    }
 
                     var result = merger.MergeSubtitles(s1, s2);
 
