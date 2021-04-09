@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace LibSrtMerge
@@ -18,7 +19,7 @@ namespace LibSrtMerge
                 Out.WriteLine("usage : {0} FILE1 FILE2", _PROG_NAME);
                 return 1;
             }
-            string outputPath = "output.srt";
+            string outputPath = GetOutputPath(args[0]);
             var merger = new SrtMerger();
             var zipProcessor = new ZipFileProcessor();
             using (var f1 = FileSystem.File.OpenRead(args[0]))
@@ -38,6 +39,17 @@ namespace LibSrtMerge
                 }
             }
             return 0;
+        }
+
+        /// <summary>
+        /// Output result in the same folder as input file with an .merge.srt extension
+        /// </summary>
+        private string GetOutputPath(string file1)
+        {
+            var folder = Path.GetDirectoryName(file1);
+            var fname = Path.GetFileNameWithoutExtension(file1);
+            fname = fname + ".merge.srt";
+            return Path.Combine(folder, fname);
         }
     }
 }
