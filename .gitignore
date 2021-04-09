@@ -3,3 +3,4 @@ bin
 .*.swp
 *.csproj.user
 *.suo
+PublishProfiles
