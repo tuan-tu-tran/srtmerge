@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using Microsoft.Extensions.Logging;
 using SubtitlesParser.Classes;
 using SubtitlesParser.Classes.Parsers;
 
@@ -10,9 +12,18 @@ namespace LibSrtMerge
 {
     public class SrtMerger
     {
+        Encoding _encoding = Encoding.UTF8;
+        private readonly ILogger<SrtMerger> _logger;
+
+        public SrtMerger(ILogger<SrtMerger> logger)
+        {
+            _logger = logger;
+        }
 
         public IEnumerable<SubtitleItem> ParseStream(Stream stream)
         {
+            stream = CleanStream(stream);
+
             var parser = new SubParser();
             var items = parser.ParseStream(stream, Encoding.UTF8);
             foreach (var item in items)
@@ -20,6 +31,64 @@ namespace LibSrtMerge
                 item.Lines = item.Lines.Select(NormalizeSubtitleLine).ToList();
             }
             return items;
+        }
+
+        private Stream CleanStream(Stream stream)
+        {
+            /*
+            Normally, an srt file looks like
+
+            1
+            00:02:17,440 --> 00:02:20,375
+            Senator, we're making
+            our final approach into Coruscant.
+
+            2
+            00:02:20,476 --> 00:02:22,501
+            Very good, Lieutenant.
+
+            But in some files, the empty line to separate the subtitles is missing.
+            The parsing library then "merges" the 2 subtitles and weird text appears.
+
+            This code tries to detect missing empty lines and add them.
+            */
+            List<string> output = new List<string>();
+            var reader = new StreamReader(stream);
+            var indexRegex = new Regex(@"^\d+$");
+            var timeCodeRegex = new Regex(@"^\d\d:\d\d:\d\d,\d\d\d --> \d\d:\d\d:\d\d,\d\d\d$");
+            string line, prev = null, prev2 = null;
+            while ((line = reader.ReadLine()) != null)
+            {
+                try
+                {
+                    if (timeCodeRegex.IsMatch(line))
+                    {
+                        if (prev == null) throw new ApplicationException("did not expect prev to be null");
+                        if (!indexRegex.IsMatch(prev)) throw new ApplicationException("did not expect prev to not be a number");
+                        if (!String.IsNullOrEmpty(prev2))
+                        {
+                            _logger.LogWarning("a blank line had to be inserted before {prev} : {line}", prev, line);
+                            output.Insert(output.Count - 1, "");
+                        }
+                    }
+                    output.Add(line);
+                    prev2 = prev;
+                    prev = line;
+                }
+                catch
+                {
+                    _logger.LogError("Error while cleaning line: {line}", line);
+                    throw;
+                }
+
+            }
+            string content =
+                String.Join("", output.Select(l => l + Environment.NewLine));
+            _logger.LogTrace("cleaned content:\r\n{content}", content);
+            return new MemoryStream(_encoding.GetBytes(
+                content
+            ));
+
         }
 
         static string NormalizeSubtitleLine(string s)

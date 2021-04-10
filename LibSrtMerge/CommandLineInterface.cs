@@ -1,3 +1,6 @@
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
 using System;
 using System.IO;
 
@@ -24,8 +27,17 @@ namespace LibSrtMerge
                 Color1 = "ffff54",
                 Color2 = "",
             };
+            var services = new ServiceCollection();
+            services.AddLogging(logging =>
+                logging
+                    .ClearProviders()
+                    .AddNLog()
+                    .SetMinimumLevel(LogLevel.Trace)
+            );
+            services.AddTransient<SrtMerger>();
+            var serviceProvider = services.BuildServiceProvider();
             string outputPath = GetOutputPath(args[0]);
-            var merger = new SrtMerger();
+            var merger = serviceProvider.GetRequiredService<SrtMerger>();
             var zipProcessor = new ZipFileProcessor();
             using (var f1 = FileSystem.File.OpenRead(args[0]))
             {
