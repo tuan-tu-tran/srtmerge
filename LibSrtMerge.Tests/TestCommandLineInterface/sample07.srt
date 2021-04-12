@@ -1,0 +1,9 @@
+1
+00:03:50,063 --> 00:03:54,692
+<font color="#ffff54">Some text</font>
+Some text
+
+2
+00:03:54,776 --> 00:03:59,322
+<font color="#ffff54"><i>Some text that should be in Italic</i></font>
+<i>Some text that should be in Italic</i>

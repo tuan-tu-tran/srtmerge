@@ -1,0 +1,6 @@
+1
+00:03:50,063 --> 00:03:54,692
+<font color="#ffff54">Some text
+with a bad newline</font>
+Some text
+with a bad newline

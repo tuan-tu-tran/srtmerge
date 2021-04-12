@@ -1,0 +1,9 @@
+1
+00:01:50,063 --> 00:03:54,692
+<font color="#ffff54">Some text</font>
+Some text
+
+2
+00:03:57,063 --> 00:04:54,692
+<font color="#ffff54">Some text that should be in another cue</font>
+Some text that should be in another cue
