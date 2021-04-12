@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace srtmerge.Merging.Internals
 {
-    class SubtitleColorizer : ISubtitleColorizer
+    class SubtitleColorizer
     {
         public void Colorize(IEnumerable<SubtitleItem> items, string hexColor)
         {

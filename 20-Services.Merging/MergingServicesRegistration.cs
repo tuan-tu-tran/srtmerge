@@ -13,9 +13,12 @@ namespace srtmerge.Merging
         public static IServiceCollection AddSubtitlesMerging(this IServiceCollection services)
         {
             services
-                .AddTransient<FilenameMerger>()
-                .AddTransient<ISubtitleColorizer, SubtitleColorizer>()
+                //public
                 .AddTransient<ISubtitleMerger, SubtitleMerger>()
+
+                //internal
+                .AddTransient<FilenameMerger>()
+                .AddTransient<SubtitleColorizer>()
             ;
             return services;
         }

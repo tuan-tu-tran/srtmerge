@@ -9,14 +9,18 @@ namespace srtmerge.Merging.Internals
     class SubtitleMerger : ISubtitleMerger
     {
         private readonly FilenameMerger _filenameMerger;
+        private readonly SubtitleColorizer _subtitleColorizer;
 
-        public SubtitleMerger(FilenameMerger filenameMerger)
+        public SubtitleMerger(FilenameMerger filenameMerger, SubtitleColorizer subtitleColorizer)
         {
             _filenameMerger = filenameMerger;
+            _subtitleColorizer = subtitleColorizer;
         }
 
         public SubtitleFile MergeSubtitles(SubtitleFile file1, SubtitleFile file2)
         {
+            _subtitleColorizer.Colorize(file1.SubtitleItems, "ffff54");
+
             return new SubtitleFile
             {
                 Path = _filenameMerger.GetMergeFilename(file1.Path),
