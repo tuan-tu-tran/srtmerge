@@ -17,6 +17,7 @@ namespace srtmerge.Merging
                 .AddTransient<ISubtitleFileMerger, SubtitleFileMerger>()
 
                 //internal
+                .AddTransient<SubtitleMerger>()
                 .AddTransient<FilenameMerger>()
                 .AddTransient<SubtitleColorizer>()
             ;

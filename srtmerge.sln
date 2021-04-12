@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "20-Services.Merging", "20-S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "20-Services.Parsing", "20-Services.Parsing\20-Services.Parsing.csproj", "{F2FD15D3-2077-4F86-920C-E22C6BCCCBF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "40-Tests.Services.Merging", "40-Tests.Services.Merging\40-Tests.Services.Merging.csproj", "{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,18 @@ Global
 		{F2FD15D3-2077-4F86-920C-E22C6BCCCBF6}.Release|x64.Build.0 = Release|Any CPU
 		{F2FD15D3-2077-4F86-920C-E22C6BCCCBF6}.Release|x86.ActiveCfg = Release|Any CPU
 		{F2FD15D3-2077-4F86-920C-E22C6BCCCBF6}.Release|x86.Build.0 = Release|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Debug|x64.Build.0 = Debug|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Debug|x86.Build.0 = Debug|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Release|x64.ActiveCfg = Release|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Release|x64.Build.0 = Release|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Release|x86.ActiveCfg = Release|Any CPU
+		{817F81F8-3C81-4D16-875F-AAC0A9F60F7F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
