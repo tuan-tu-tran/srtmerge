@@ -2,7 +2,7 @@
 
 namespace srtmerge.Merging
 {
-    public interface ISubtitleMerger
+    public interface ISubtitleFileMerger
     {
         SubtitleFile MergeSubtitles(SubtitleFile file1, SubtitleFile file2);
     }

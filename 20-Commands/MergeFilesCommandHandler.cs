@@ -9,12 +9,12 @@ namespace srtmerge.Commands
     public class MergeFilesCommandHandler
     {
         private readonly IFileParser _fileParser;
-        private readonly ISubtitleMerger _subtitleMerger;
+        private readonly ISubtitleFileMerger _subtitleMerger;
         private readonly ISubtitleWriter _subtitleWriter;
 
         public MergeFilesCommandHandler(
             IFileParser fileParser,
-            ISubtitleMerger subtitleMerger,
+            ISubtitleFileMerger subtitleMerger,
             ISubtitleWriter subtitleWriter
         )
         {

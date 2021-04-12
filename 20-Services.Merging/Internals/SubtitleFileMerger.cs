@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace srtmerge.Merging.Internals
 {
-    class SubtitleMerger : ISubtitleMerger
+    class SubtitleFileMerger : ISubtitleFileMerger
     {
         private readonly FilenameMerger _filenameMerger;
         private readonly SubtitleColorizer _subtitleColorizer;
 
-        public SubtitleMerger(FilenameMerger filenameMerger, SubtitleColorizer subtitleColorizer)
+        public SubtitleFileMerger(FilenameMerger filenameMerger, SubtitleColorizer subtitleColorizer)
         {
             _filenameMerger = filenameMerger;
             _subtitleColorizer = subtitleColorizer;
@@ -110,6 +110,5 @@ namespace srtmerge.Merging.Internals
             result.AddRange(q2);
             return result;
         }
-
     }
 }

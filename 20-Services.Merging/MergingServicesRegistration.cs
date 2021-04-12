@@ -14,7 +14,7 @@ namespace srtmerge.Merging
         {
             services
                 //public
-                .AddTransient<ISubtitleMerger, SubtitleMerger>()
+                .AddTransient<ISubtitleFileMerger, SubtitleFileMerger>()
 
                 //internal
                 .AddTransient<FilenameMerger>()
