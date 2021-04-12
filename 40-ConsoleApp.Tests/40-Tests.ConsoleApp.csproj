@@ -21,6 +21,7 @@
     <None Remove="samples\sample10.srt" />
     <None Remove="samples\sample11.srt" />
     <None Remove="samples\sample12.srt" />
+    <None Remove="samples\sample13.srt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,7 @@
     <EmbeddedResource Include="samples\sample03.srt" />
     <EmbeddedResource Include="samples\sample04.srt" />
     <EmbeddedResource Include="samples\sample11.srt" />
+    <EmbeddedResource Include="samples\sample13.srt" />
     <EmbeddedResource Include="samples\sample12.srt" />
   </ItemGroup>
 

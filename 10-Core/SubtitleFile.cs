@@ -10,5 +10,11 @@ namespace srtmerge
     {
         public string Path { get; set; }
         public List<SubtitleItem> SubtitleItems { get; set; }
+        public Language Lang { get; set; } = Language.UNKNOWN;
+    }
+
+    public enum Language
+    {
+        UNKNOWN, VN
     }
 }

@@ -11,22 +11,30 @@ namespace srtmerge.Parsing.Internals
     {
         private readonly ZipFileService _zipFileService;
         private readonly ISubtitleParser _subtitleParser;
+        private readonly LanguageIdentifier _languageIdentifier;
         private readonly IFileReader _fileReader;
 
-        public FileParser(ZipFileService zipFileProcessor, ISubtitleParser subtitleParser, IFileReader fileReader)
+        public FileParser(
+            ZipFileService zipFileProcessor,
+            ISubtitleParser subtitleParser,
+            LanguageIdentifier languageIdentifier,
+            IFileReader fileReader)
         {
             _zipFileService = zipFileProcessor;
             _subtitleParser = subtitleParser;
+            _languageIdentifier = languageIdentifier;
             _fileReader = fileReader;
         }
         public SubtitleFile ParseFile(string path)
         {
             using (var stream = _fileReader.OpenRead(path))
             {
+                var subs = ParseFile(stream, path).ToList();
                 return new SubtitleFile
                 {
                     Path = path,
-                    SubtitleItems = ParseFile(stream, path).ToList(),
+                    SubtitleItems = subs,
+                    Lang = _languageIdentifier.IdentifyLanguage(subs),
                 };
             }
         }

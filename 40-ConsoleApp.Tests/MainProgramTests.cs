@@ -53,9 +53,13 @@ namespace srtmerge.ConsoleApp.Tests
 
         [TestMethod]
         [DataRow("sample01.zip", "sample02.zip", "sample10.srt")]
+        [DataRow("sample02.zip", "sample01.zip", "sample13.srt")]
         [DataRow("sample03.srt", "sample04.srt", "sample10.srt")]
+        [DataRow("sample04.srt", "sample03.srt", "sample13.srt")]
+        [DataRow("sample02.zip", "sample03.srt", "sample13.srt")]
         [DataRow("sample03.srt", "sample02.zip", "sample10.srt")]
         [DataRow("sample01.zip", "sample04.srt", "sample10.srt")]
+        [DataRow("sample04.srt", "sample01.zip", "sample13.srt")]
         public void ItCanMergeFilesCorrectly(string input1, string input2, string expectedOutput)
         {
             Merging_Files_Should_Produce_Expected_Result(input1, input2, expectedOutput);

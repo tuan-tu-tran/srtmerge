@@ -20,6 +20,7 @@ namespace srtmerge.Parsing
             services.AddTransient<ISubtitleParser, SubtitleParser>();
             services.Decorate<ISubtitleParser, SrtCleaner>();
             services.AddTransient<ZipFileService>();
+            services.AddTransient<LanguageIdentifier>();
             return services;
         }
     }

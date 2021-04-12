@@ -21,7 +21,7 @@ namespace srtmerge.Merging.Internals
 
         public SubtitleFile MergeSubtitles(SubtitleFile file1, SubtitleFile file2)
         {
-            _subtitleColorizer.Colorize(file1.SubtitleItems, "ffff54");
+            _subtitleColorizer.Colorize(file1, file2);
 
             return new SubtitleFile
             {
