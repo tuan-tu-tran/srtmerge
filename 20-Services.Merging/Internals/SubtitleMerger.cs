@@ -11,49 +11,49 @@ namespace srtmerge.Merging.Internals
             var q2 = new Queue<SubtitleItem>(subs2);
 
             var result = new List<SubtitleItem>();
-            SubtitleItem current = null;
+            SubtitleItem lastItem = null;
             while (q1.Count > 0 && q2.Count > 0)
             {
-                if (current == null)
+                if (lastItem == null)
                 {
                     var s1 = q1.Peek();
                     var s2 = q2.Peek();
                     if (s1.Overlaps(s2))
                     {
-                        current = s1.Clone();
-                        current.Lines.AddRange(s2.Lines);
-                        result.Add(current);
+                        lastItem = s1.Clone();
+                        lastItem.Lines.AddRange(s2.Lines);
+                        result.Add(lastItem);
                         q1.Dequeue();
                         q2.Dequeue();
                     }
                     else if (s1.StartTime <= s2.StartTime)
                     {
-                        current = s1.Clone();
-                        result.Add(current);
+                        lastItem = s1.Clone();
+                        result.Add(lastItem);
                         q1.Dequeue();
                     }
                     else
                     {
-                        current = q2.Dequeue().Clone();
-                        result.Add(current);
+                        lastItem = q2.Dequeue().Clone();
+                        result.Add(lastItem);
                     }
                 }
                 else
                 {
                     var s1 = q1.Peek();
                     var s2 = q2.Peek();
-                    if (s2.Overlaps(current))
+                    if (s2.Overlaps(lastItem))
                     {
-                        if (!s2.Overlaps(s1) || s2.GetOverlap(current) >= s2.GetOverlap(s1))
+                        if (!s2.Overlaps(s1) || s2.GetOverlap(lastItem) >= s2.GetOverlap(s1))
                         {
-                            current.Lines.AddRange(s2.Lines);
+                            lastItem.Lines.AddRange(s2.Lines);
                             q2.Dequeue();
                         }
-                        else
+                        else //s2.Overlaps(s1) && s2.GetOverlap(s1) > s2.GetOverlap(lastItem)
                         {
-                            current = s1.Clone();
-                            current.Lines.AddRange(s2.Lines);
-                            result.Add(current);
+                            lastItem = s1.Clone();
+                            lastItem.Lines.AddRange(s2.Lines);
+                            result.Add(lastItem);
                             q1.Dequeue();
                             q2.Dequeue();
                         }
@@ -62,22 +62,22 @@ namespace srtmerge.Merging.Internals
                     {
                         if (s1.Overlaps(s2))
                         {
-                            current = s1.Clone();
-                            current.Lines.AddRange(s2.Lines);
-                            result.Add(current);
+                            lastItem = s1.Clone();
+                            lastItem.Lines.AddRange(s2.Lines);
+                            result.Add(lastItem);
                             q1.Dequeue();
                             q2.Dequeue();
                         }
                         else if (s1.StartTime <= s2.StartTime)
                         {
-                            current = s1.Clone();
-                            result.Add(current);
+                            lastItem = s1.Clone();
+                            result.Add(lastItem);
                             q1.Dequeue();
                         }
                         else
                         {
-                            current = q2.Dequeue().Clone();
-                            result.Add(current);
+                            lastItem = q2.Dequeue().Clone();
+                            result.Add(lastItem);
                         }
 
                     }
