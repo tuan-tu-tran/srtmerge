@@ -53,14 +53,22 @@ namespace srtmerge.ConsoleApp
 
         internal int Run(string[] args, bool pause = false)
         {
-            if (args.Length != 2)
+            if (args.Length < 2)
             {
                 Console.Error.WriteLine("Error : wrong number of arguments: " + args.Length);
-                Console.Error.WriteLine("usage : {0} FILE1 FILE2", Assembly.GetExecutingAssembly().GetName().Name);
+                Console.Error.WriteLine("usage : {0} FILE1 FILE2 [...]", Assembly.GetExecutingAssembly().GetName().Name);
                 return 1;
             }
 
-            _mergeFilesCommandHandler.MergeFiles(args[0], args[1]);
+            try
+            {
+                _mergeFilesCommandHandler.MergeFiles(args);
+            }
+            catch (Exception ex)
+            {
+                if (!pause) throw;
+                Console.Error.WriteLine(ex);
+            }
             if(pause)
             {
                 Console.WriteLine("Press any key...");
