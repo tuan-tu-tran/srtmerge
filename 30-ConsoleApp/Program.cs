@@ -21,7 +21,7 @@ namespace srtmerge.ConsoleApp
             var serviceProvider = services.BuildServiceProvider();
 
             var program = serviceProvider.GetRequiredService<MainProgram>();
-            return program.Run(args);
+            return program.Run(args, pause: true);
         }
     }
 
@@ -51,7 +51,7 @@ namespace srtmerge.ConsoleApp
             return services;
         }
 
-        internal int Run(string[] args)
+        internal int Run(string[] args, bool pause = false)
         {
             if (args.Length != 2)
             {
@@ -61,6 +61,11 @@ namespace srtmerge.ConsoleApp
             }
 
             _mergeFilesCommandHandler.MergeFiles(args[0], args[1]);
+            if(pause)
+            {
+                Console.WriteLine("Press any key...");
+                Console.ReadKey();
+            }
             return 0;
         }
     }
