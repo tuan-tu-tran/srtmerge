@@ -9,6 +9,7 @@ namespace srtmerge.Merging.Internals
     class SubtitleColorizer
     {
         const string hexColor = "ffff54";
+        private const string _openingTag = "<font color=\"#" + hexColor + "\">";
 
         public void Colorize(SubtitleFile file1, SubtitleFile file2)
         {
@@ -21,8 +22,11 @@ namespace srtmerge.Merging.Internals
 
             foreach (var item in fileToColorize.SubtitleItems)
             {
-                item.Lines[0] = "<font color=\"#" + hexColor + "\">" + item.Lines[0];
-                item.Lines[item.Lines.Count - 1] += "</font>";
+                if (!item.Lines[0].StartsWith(_openingTag))
+                {
+                    item.Lines[0] = _openingTag + item.Lines[0];
+                    item.Lines[item.Lines.Count - 1] += "</font>";
+                }
             }
         }
     }
