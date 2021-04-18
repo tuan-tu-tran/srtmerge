@@ -95,6 +95,7 @@ namespace srtmerge.Parsing.Internals
                 .Replace("\\N", "\n")
                 .Replace("{\\i1}", "<i>")
                 .Replace("{\\i0}", "</i>")
+                .Replace("\r\n", "\n").Replace("\r", "\n").Replace("\n", "\r\n")
             ;
         }
     }
