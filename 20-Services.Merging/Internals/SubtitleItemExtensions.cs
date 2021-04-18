@@ -29,5 +29,9 @@ namespace srtmerge.Merging.Internals
             return Math.Max(overlap, 0);
         }
 
+        public static int GetShift(this SubtitleItem s1, SubtitleItem s2)
+        {
+            return Math.Abs(s1.StartTime - s2.StartTime) + Math.Abs(s1.EndTime - s2.EndTime);
+        }
     }
 }

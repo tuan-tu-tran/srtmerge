@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace srtmerge.Merging.Internals
 {
     public class SubtitleMerger
     {
-        internal List<SubtitleItem> MergeSubtitles(IEnumerable<SubtitleItem> subs1, IEnumerable<SubtitleItem> subs2)
+        internal List<SubtitleItem> MergeSubtitles(
+            IEnumerable<SubtitleItem> subs1,
+            IEnumerable<SubtitleItem> subs2,
+            out int totaShift,
+            out double averageShift)
         {
+            totaShift = 0;
             var q1 = new Queue<SubtitleItem>(subs1);
             var q2 = new Queue<SubtitleItem>(subs2);
 
@@ -23,6 +29,7 @@ namespace srtmerge.Merging.Internals
                         lastItem = s1.Clone();
                         lastItem.Lines.AddRange(s2.Lines);
                         result.Add(lastItem);
+                        totaShift += s1.GetShift(s2);
                         q1.Dequeue();
                         q2.Dequeue();
                     }
@@ -54,6 +61,7 @@ namespace srtmerge.Merging.Internals
                             lastItem = s1.Clone();
                             lastItem.Lines.AddRange(s2.Lines);
                             result.Add(lastItem);
+                            totaShift += s1.GetShift(s2);
                             q1.Dequeue();
                             q2.Dequeue();
                         }
@@ -65,6 +73,7 @@ namespace srtmerge.Merging.Internals
                             lastItem = s1.Clone();
                             lastItem.Lines.AddRange(s2.Lines);
                             result.Add(lastItem);
+                            totaShift += s1.GetShift(s2);
                             q1.Dequeue();
                             q2.Dequeue();
                         }
@@ -85,6 +94,8 @@ namespace srtmerge.Merging.Internals
             }
             result.AddRange(q1);
             result.AddRange(q2);
+
+            averageShift = 1.0 * totaShift / subs2.Count();
             return result;
         }
     }

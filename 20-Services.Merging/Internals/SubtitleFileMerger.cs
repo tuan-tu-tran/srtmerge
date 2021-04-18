@@ -19,14 +19,21 @@ namespace srtmerge.Merging.Internals
             _subtitleMerger = subtitleMerger;
         }
 
-        public SubtitleFile MergeSubtitles(SubtitleFile file1, SubtitleFile file2)
+        public MergeResult MergeSubtitles(SubtitleFile file1, SubtitleFile file2)
         {
             _subtitleColorizer.Colorize(file1, file2);
 
-            return new SubtitleFile
+            List<SubtitleItem> mergedSubs = _subtitleMerger.MergeSubtitles(file1.SubtitleItems, file2.SubtitleItems,
+                out var totaShift, out var averageShift);
+            return new MergeResult
             {
-                Path = _filenameMerger.GetMergeFilename(file1.Path),
-                SubtitleItems = _subtitleMerger.MergeSubtitles(file1.SubtitleItems, file2.SubtitleItems),
+                File = new SubtitleFile
+                {
+                    Path = _filenameMerger.GetMergeFilename(file1.Path),
+                    SubtitleItems = mergedSubs,
+                },
+                AverageShift = averageShift,
+                TotalShift = totaShift,
             };
         }
     }
