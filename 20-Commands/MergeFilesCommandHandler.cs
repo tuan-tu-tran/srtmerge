@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace srtmerge.Commands
 {
@@ -31,6 +32,7 @@ namespace srtmerge.Commands
 
         public void MergeFiles(string[] filenames)
         {
+            filenames = RemoveMergeFiles(filenames);
             if (filenames.Length < 2)
                 throw new ArgumentException("there should be at least 2 files");
 
@@ -39,6 +41,12 @@ namespace srtmerge.Commands
                 MergePairwiseByLanguage(files);
             else
                 MergeTwoFiles(files);
+        }
+
+        private string[] RemoveMergeFiles(string[] filenames)
+        {
+            var mergeFilePattern = new Regex("\\.merge-[0-9]+\\.srt");
+            return filenames.Where(f => !mergeFilePattern.IsMatch(f)).ToArray();
         }
 
         private void MergeTwoFiles(List<SubtitleFile> files)
