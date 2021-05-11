@@ -84,7 +84,7 @@ namespace srtmerge.Commands
             var basename = Path.GetFileNameWithoutExtension(files.First().Path);
             var folder = Path.GetDirectoryName(files.First().Path);
             int i = 0;
-            foreach (var merge in mergeResults)
+            foreach (var merge in mergeResults.Take(7))
             {
                 ++i;
                 _logger.LogInformation("{i} : average: {avg} | total : {total}", i, merge.AverageShift, merge.TotalShift);
