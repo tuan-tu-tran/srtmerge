@@ -58,7 +58,9 @@ namespace srtmerge.Commands
 
             _logger.LogInformation("merge result: Total shift: {total} | Avg: {avg}", merge.TotalShift, merge.AverageShift);
 
-            _subtitleWriter.WriteFile(merge.File);
+            var filename = Path.GetFileNameWithoutExtension(subs1.Path) + ".merge.srt";
+
+            _subtitleWriter.WriteFile(merge.SubtitleItems, filename);
         }
 
         private void MergePairwiseByLanguage(List<SubtitleFile> files)
@@ -89,8 +91,8 @@ namespace srtmerge.Commands
                 ++i;
                 _logger.LogInformation("{i} : average: {avg} | total : {total}", i, merge.AverageShift, merge.TotalShift);
                 var fname = basename + ".merge-" + i + ".srt";
-                merge.File.Path = Path.Combine(folder, fname);
-                _subtitleWriter.WriteFile(merge.File);
+                var path = Path.Combine(folder, fname);
+                _subtitleWriter.WriteFile(merge.SubtitleItems, path);
             }
         }
     }

@@ -8,6 +8,6 @@ namespace srtmerge.Output
 {
     public interface ISubtitleWriter
     {
-        void WriteFile(SubtitleFile file);
+        void WriteFile(IEnumerable<SubtitleItem> subtitles, string filename);
     }
 }

@@ -27,11 +27,7 @@ namespace srtmerge.Merging.Internals
                 out var totaShift, out var averageShift);
             return new MergeResult
             {
-                File = new SubtitleFile
-                {
-                    Path = _filenameMerger.GetMergeFilename(file1.Path),
-                    SubtitleItems = mergedSubs,
-                },
+                SubtitleItems = mergedSubs,
                 AverageShift = averageShift,
                 TotalShift = totaShift,
             };

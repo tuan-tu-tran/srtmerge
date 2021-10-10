@@ -16,11 +16,11 @@ namespace srtmerge.Output.Internals
             _fileWriter = fileWriter;
         }
 
-        public void WriteFile(SubtitleFile file)
+        public void WriteFile(IEnumerable<SubtitleItem> subtitles, string path)
         {
-            using (var stream = _fileWriter.OpenWrite(file.Path))
+            using (var stream = _fileWriter.OpenWrite(path))
             {
-                WriteStream(stream, file.SubtitleItems);
+                WriteStream(stream, subtitles);
             }
         }
 
@@ -48,6 +48,5 @@ namespace srtmerge.Output.Internals
         {
             return TimeSpan.FromMilliseconds(startTime).ToString("hh\\:mm\\:ss\\,fff");
         }
-
     }
 }
