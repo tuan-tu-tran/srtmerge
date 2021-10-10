@@ -126,5 +126,29 @@ namespace srtmerge.ConsoleApp.Tests
             //Assert
             _filesWritten.Should().ContainSingle().Which.Filename.Should().Be(@"some\path1\sample01.merge.srt");
         }
+
+        [TestMethod]
+        public void When_MultipleOutputFiles_Then_FilenamesAreCorrect()
+        {
+            //Given an input file in one folder (in one language)
+            //And other input files in other folders (in another language)
+            //When I merge the files
+            //Then the output files are produced is the same folder as the first input file
+            //And the output filenames are srt files with the same name as the first input file, but with the suffix .merge
+            //And the merge suffix have the correct offsets
+
+            //Act
+            _sut.Run(new[] {
+                @"some\path1\sample03.srt",
+                @"some-other-path\sample04.srt",
+                @"yet-another-path\sample05.srt",
+            });
+
+            //Assert
+            _filesWritten.Select(f => f.Filename).Should().BeEquivalentTo(new[]{
+                @"some\path1\sample03.merge-1.srt",
+                @"some\path1\sample03.merge-2.srt",
+            });
+        }
     }
 }
