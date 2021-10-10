@@ -15,18 +15,21 @@ namespace srtmerge.Commands
         private readonly IFileParser _fileParser;
         private readonly ISubtitleFileMerger _subtitleMerger;
         private readonly ILogger<MergeFilesCommandHandler> _logger;
+        private readonly IFilenameManager _filenameManager;
         private readonly ISubtitleWriter _subtitleWriter;
 
         public MergeFilesCommandHandler(
             IFileParser fileParser,
             ISubtitleFileMerger subtitleMerger,
             ILogger<MergeFilesCommandHandler> logger,
+            IFilenameManager filenameManager,
             ISubtitleWriter subtitleWriter
         )
         {
             _fileParser = fileParser;
             _subtitleMerger = subtitleMerger;
             _logger = logger;
+            _filenameManager = filenameManager;
             _subtitleWriter = subtitleWriter;
         }
 
@@ -58,9 +61,7 @@ namespace srtmerge.Commands
 
             _logger.LogInformation("merge result: Total shift: {total} | Avg: {avg}", merge.TotalShift, merge.AverageShift);
 
-            var filename = Path.GetFileNameWithoutExtension(subs1.Path) + ".merge.srt";
-
-            _subtitleWriter.WriteFile(merge.SubtitleItems, filename);
+            _subtitleWriter.WriteFile(merge.SubtitleItems, _filenameManager.GetMergeFilename(subs1.Path));
         }
 
         private void MergePairwiseByLanguage(List<SubtitleFile> files)

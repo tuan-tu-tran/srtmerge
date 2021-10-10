@@ -13,7 +13,10 @@ namespace srtmerge.Output
         public static IServiceCollection AddSubtitlesOutput(this IServiceCollection services)
         {
             //public
-            services.AddTransient<ISubtitleWriter, SubtitleWriter>();
+            services
+                .AddTransient<ISubtitleWriter, SubtitleWriter>()
+                .AddTransient<IFilenameManager, FilenameManager>()
+            ;
 
             //internal
             services.AddTransient<IFileWriter, FileWriter>();
