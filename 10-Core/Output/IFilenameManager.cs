@@ -2,6 +2,6 @@
 {
     public interface IFilenameManager
     {
-        string GetMergeFilename(string path);
+        string GetMergeFilename(string basepath, int? offset = null);
     }
 }

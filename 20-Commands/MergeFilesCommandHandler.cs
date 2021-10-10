@@ -84,15 +84,12 @@ namespace srtmerge.Commands
 
             mergeResults = mergeResults.OrderBy(m => m.AverageShift).ThenBy(m => m.TotalShift).ToList();
 
-            var basename = Path.GetFileNameWithoutExtension(files.First().Path);
-            var folder = Path.GetDirectoryName(files.First().Path);
             int i = 0;
             foreach (var merge in mergeResults.Take(7))
             {
                 ++i;
                 _logger.LogInformation("{i} : average: {avg} | total : {total}", i, merge.AverageShift, merge.TotalShift);
-                var fname = basename + ".merge-" + i + ".srt";
-                var path = Path.Combine(folder, fname);
+                var path = _filenameManager.GetMergeFilename(files.First().Path, i);
                 _subtitleWriter.WriteFile(merge.SubtitleItems, path);
             }
         }
